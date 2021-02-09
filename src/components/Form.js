@@ -12,11 +12,12 @@ const Form = () => {
         comments: '',
     })
 
+    //State of error
+
+    const [ error, updateError] =useState(false);
+
     //Function that update the state
     const updateState = e => {
-
-        console.log(e.target.value);
-        console.log(e.target.name);
 
         updateAppointment({
             ...appointment,
@@ -31,14 +32,13 @@ const Form = () => {
 
     const submitAppointment = e => {
         e.preventDefault();
-        console.log('sending form');
 
         //Validation
-       /* if(mascota.trim() === '' ){ 
-            
+       if(name.trim() === '' || reasonVisit.trim() === '' || date.trim() === '' || time.trim() === '' || comments.trim() === '' ){ 
+            updateError(true);
 
             return;
-        }*/
+        }
 
         //Assign an ID
 
@@ -107,6 +107,7 @@ const Form = () => {
                     Book the appointment
                 </button>
 
+                { error ? <small className="alert-error">* All the fields are required</small> : null}
             </form>
 
         </Fragment>
