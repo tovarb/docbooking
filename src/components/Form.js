@@ -47,8 +47,6 @@ const Form = ({createAppointment}) => {
         //Assign an ID
         appointment.id = nanoid();
 
-        console.log(appointment);
-
         //Create the appointment
         createAppointment(appointment);
 
