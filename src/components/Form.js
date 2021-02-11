@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
+import { nanoid } from 'nanoid';
 
-const Form = () => {
+const Form = ({createAppointment}) => {
 
     //Create state of appointment
 
@@ -40,11 +41,25 @@ const Form = () => {
             return;
         }
 
+        //Remove Error message
+        updateError(false);
+
         //Assign an ID
+        appointment.id = nanoid();
+
+        console.log(appointment);
 
         //Create the appointment
+        createAppointment(appointment);
 
         //Restart the form
+        updateAppointment({
+            name: '',
+            reasonVisit: '',
+            date: '',
+            time: '',
+            comments: '',
+        })
     }
 
     return ( 
