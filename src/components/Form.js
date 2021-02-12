@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
 const Form = ({createAppointment}) => {
 
@@ -125,6 +126,10 @@ const Form = ({createAppointment}) => {
 
         </Fragment>
      );
+}
+
+Form.propTypes = {
+    createAppointment: PropTypes.func.isRequired
 }
  
 export default Form;
